@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  application:
+    name: ai-tourism-backend
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/travel_db}
+      auto-index-creation: true
+  cache:
+    type: simple
+    cache-names:
+      - weatherCache
+      - imageCache
+
+# External Travel APIs configuration
+travel:
+  api:
+    gemini:
+      key: ${GEMINI_API_KEY:}
+      model: ${GEMINI_MODEL:gemini-1.5-flash}
+      url: https://generativelanguage.googleapis.com/v1beta/models
+    openweather:
+      key: ${OPENWEATHER_API_KEY:}
+      url: https://api.openweathermap.org/data/2.5/weather
+    unsplash:
+      key: ${UNSPLASH_ACCESS_KEY:}
+      url: https://api.unsplash.com/search/photos
+
+logging:
+  level:
+    root: INFO
+    com.designtravel: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: INFO
