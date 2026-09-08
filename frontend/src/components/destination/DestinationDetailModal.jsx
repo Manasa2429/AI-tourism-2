@@ -206,6 +206,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
           {/* Notable Places & Landmarks */}
           <FamousPlacesGrid
             places={destination.places}
+            destinationName={destination.name}
             onAddToPlanner={() => onOpenPlannerWithDest({ ...destination, nearbyPlaces })}
           />
 

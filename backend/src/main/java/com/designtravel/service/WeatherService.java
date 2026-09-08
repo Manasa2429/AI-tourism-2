@@ -39,9 +39,9 @@ public class WeatherService {
             try {
                 String uri;
                 if (lat != null && lon != null) {
-                    uri = String.format("%s?lat=%f&lon=%f&units=metric&appid=%s", weatherApiUrl, lat, lon, apiKey);
+                    uri = String.format(java.util.Locale.US, "%s?lat=%.4f&lon=%.4f&units=metric&appid=%s", weatherApiUrl, lat, lon, apiKey);
                 } else if (city != null && !city.isBlank()) {
-                    uri = String.format("%s?q=%s&units=metric&appid=%s", weatherApiUrl, city, apiKey);
+                    uri = String.format("%s?q=%s&units=metric&appid=%s", weatherApiUrl, java.net.URLEncoder.encode(city, java.nio.charset.StandardCharsets.UTF_8), apiKey);
                 } else {
                     return fetchOpenMeteoRealTimeWeather(lat, lon, city);
                 }
@@ -112,7 +112,7 @@ public class WeatherService {
 
         // If coordinates are missing but city is provided, geocode via Open-Meteo Geocoding API
         if (lat == null || lon == null) {
-            String geoUrl = String.format("https://geocoding-api.open-meteo.com/v1/search?name=%s&count=1&language=en&format=json", city);
+            String geoUrl = String.format("https://geocoding-api.open-meteo.com/v1/search?name=%s&count=1&language=en&format=json", java.net.URLEncoder.encode(city, java.nio.charset.StandardCharsets.UTF_8));
             String geoRes = restClient.get().uri(geoUrl).retrieve().body(String.class);
             JsonNode geoRoot = objectMapper.readTree(geoRes);
             JsonNode first = geoRoot.path("results").path(0);
@@ -189,10 +189,16 @@ public class WeatherService {
         String resolvedCity = (city != null && !city.isBlank()) ? city : "Travel Destination";
         double latitude = (lat != null) ? lat : 35.0;
 
-        // Realistic temperature based on latitude
-        double baseTemp = 28.0 - (Math.abs(latitude) * 0.35);
-        if (Math.abs(latitude) > 60) baseTemp = 10.0; // Polar/Nordic
-        if (Math.abs(latitude) < 20) baseTemp = 29.0; // Tropical
+        // Realistic temperature taking elevation and latitude into account
+        String lowerCity = resolvedCity.toLowerCase();
+        boolean isHighland = lowerCity.contains("munnar") || lowerCity.contains("ooty")
+                || lowerCity.contains("manali") || lowerCity.contains("shimla")
+                || lowerCity.contains("kodaikanal") || lowerCity.contains("kedarnath")
+                || lowerCity.contains("leh") || lowerCity.contains("darjeeling");
+
+        double baseTemp = isHighland ? 17.5 : (25.0 - (Math.abs(latitude) * 0.35));
+        if (!isHighland && Math.abs(latitude) > 60) baseTemp = 10.0; // Polar/Nordic
+        if (!isHighland && Math.abs(latitude) < 20) baseTemp = 26.5; // Tropical plains
 
         Random rand = new Random((resolvedCity + latitude).hashCode());
         double variation = (rand.nextDouble() * 4.0) - 2.0;

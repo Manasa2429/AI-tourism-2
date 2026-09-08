@@ -39,8 +39,9 @@ public class ImageService {
 
         if (unsplashAccessKey != null && !unsplashAccessKey.isBlank()) {
             try {
+                String encodedQuery = java.net.URLEncoder.encode(query.trim(), java.nio.charset.StandardCharsets.UTF_8);
                 String uri = String.format("%s?query=%s&per_page=%d&orientation=landscape",
-                        unsplashUrl, query.replace(" ", "+"), limit);
+                        unsplashUrl, encodedQuery, limit);
 
                 String response = restClient.get()
                         .uri(uri)
@@ -134,9 +135,14 @@ public class ImageService {
         String key = destinationPhotoMap.keySet().stream()
                 .filter(k -> query.toLowerCase().contains(k))
                 .findFirst()
-                .orElse("munnar");
+                .orElse(null);
 
-        List<String> urls = destinationPhotoMap.getOrDefault(key, destinationPhotoMap.get("munnar"));
+        List<String> urls = key != null ? destinationPhotoMap.get(key) : List.of(
+                "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85"
+        );
         List<ImageDto> list = new ArrayList<>();
         for (int i = 0; i < Math.min(urls.size(), limit); i++) {
             String url = urls.get(i);
