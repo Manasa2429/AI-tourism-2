@@ -42,23 +42,12 @@ public class DestinationService {
 
         String q = query.trim().toLowerCase();
 
-        // 1. Check if destination already exists in database
-        java.util.Optional<Destination> existing = destinationRepository.findAll().stream()
-                .filter(d -> d.getName().toLowerCase().equals(q)
-                          || d.getCountry().toLowerCase().equals(q)
-                          || d.getName().toLowerCase().contains(q))
-                .findFirst();
-
-        if (existing.isPresent()) {
-            return existing.get();
-        }
-
-        // 2. Discover & Generate via AI Geographer
+        // 1. Generate via AI Geographer directly on-the-fly (Stateless real-time discovery)
         Destination generated = geminiAiService != null
                 ? geminiAiService.generateDestinationMetadata(query)
-                : Destination.builder().name(query).country("Global").continent("Europe").build();
+                : Destination.builder().name(query).country("Global").continent("Asia").build();
 
-        // 3. Attach Dynamic Unsplash Photos
+        // 2. Attach Dynamic Unsplash Photos
         if (imageService != null) {
             try {
                 List<com.designtravel.dto.ImageDto> photos = imageService.searchPhotos(generated.getName() + " travel landscape architecture", 6);
@@ -82,8 +71,8 @@ public class DestinationService {
         // Set GeoJsonPoint location
         generated.setLocation(new org.springframework.data.mongodb.core.geo.GeoJsonPoint(generated.getLongitude(), generated.getLatitude()));
 
-        // 4. Save to MongoDB so it is permanently in catalog
-        return destinationRepository.save(generated);
+        // 3. Return directly in-memory - DO NOT persist each search into MongoDB
+        return generated;
     }
 
     public Destination getDestinationById(String id) {

@@ -542,6 +542,34 @@ public class GeminiAiService {
             country = "New Zealand"; continent = "Oceania"; lat = -45.0312; lon = 168.6626;
             currency = "NZD ($)"; language = "English / Maori"; bestSeason = "Dec - Feb (Summer) & July - Aug (Snow)"; budget = 175;
             tags = List.of("Alpine Lakes", "Adventure", "Fjords", "Wine");
+        } else if (lower.contains("hyderabad") || lower.contains("telangana") || lower.contains("secunderabad")) {
+            country = "India"; continent = "Asia"; lat = 17.3850; lon = 78.4867;
+            currency = "INR (₹)"; language = "Telugu / Urdu / Hindi / English"; bestSeason = "October - March"; budget = 65;
+            tags = List.of("Nizami Architecture", "Charminar", "Biryani Gastronomy", "Pearls & Palaces");
+        } else if (lower.contains("munnar") || lower.contains("kerala") || lower.contains("idukki")) {
+            country = "India"; continent = "Asia"; lat = 10.0889; lon = 77.0595;
+            currency = "INR (₹)"; language = "Malayalam / English"; bestSeason = "September - March"; budget = 50;
+            tags = List.of("Tea Estates", "Western Ghats", "Misty Peaks", "Waterfalls");
+        } else if (lower.contains("goa")) {
+            country = "India"; continent = "Asia"; lat = 15.2993; lon = 74.1240;
+            currency = "INR (₹)"; language = "Konkani / English / Hindi"; bestSeason = "November - February"; budget = 75;
+            tags = List.of("Beaches", "Portuguese Heritage", "Seafood", "Sunsets");
+        } else if (lower.contains("jaipur") || lower.contains("rajasthan")) {
+            country = "India"; continent = "Asia"; lat = 26.9124; lon = 75.7873;
+            currency = "INR (₹)"; language = "Hindi / Rajasthani / English"; bestSeason = "October - March"; budget = 60;
+            tags = List.of("Pink City", "Palaces", "Fortresses", "Handicrafts");
+        } else if (lower.contains("delhi")) {
+            country = "India"; continent = "Asia"; lat = 28.6139; lon = 77.2090;
+            currency = "INR (₹)"; language = "Hindi / English / Punjabi"; bestSeason = "October - March"; budget = 70;
+            tags = List.of("Mughal Architecture", "Historic Monuments", "Street Food", "Bazaars");
+        } else if (lower.contains("mumbai")) {
+            country = "India"; continent = "Asia"; lat = 18.9220; lon = 72.8347;
+            currency = "INR (₹)"; language = "Marathi / Hindi / English"; bestSeason = "November - February"; budget = 90;
+            tags = List.of("Gateway of India", "Marine Drive", "Bollywood", "Colonial Heritage");
+        } else if (lower.contains("bengaluru") || lower.contains("bangalore")) {
+            country = "India"; continent = "Asia"; lat = 12.9716; lon = 77.5946;
+            currency = "INR (₹)"; language = "Kannada / English / Hindi"; bestSeason = "September - March"; budget = 70;
+            tags = List.of("Garden City", "Palaces", "Tech Hub", "Craft Breweries");
         }
 
         String destinationName = capitalize(query);
@@ -724,6 +752,48 @@ public class GeminiAiService {
                     .bestTimeToVisit("On the hour for clock chimes")
                     .latitude(50.0875)
                     .longitude(14.4213)
+                    .build()
+            );
+        } else if (lower.contains("hyderabad") || lower.contains("telangana")) {
+            places = List.of(
+                com.designtravel.model.Place.builder()
+                    .id("hyd-charminar")
+                    .name("Charminar Monument & Laad Bazaar")
+                    .category("Historic Islamic Monument")
+                    .description("16th-century four-minaret mosque and iconic symbol of Hyderabad, surrounded by vibrant pearl and bangle markets.")
+                    .imageUrl("https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80")
+                    .entryFee("₹25 (~$0.30)")
+                    .openingHours("09:30 AM - 05:30 PM")
+                    .rating(4.8)
+                    .bestTimeToVisit("Morning or evening illumination")
+                    .latitude(17.3616)
+                    .longitude(78.4747)
+                    .build(),
+                com.designtravel.model.Place.builder()
+                    .id("hyd-golconda")
+                    .name("Golconda Fort Citadel")
+                    .category("Acoustic Medieval Fortress")
+                    .description("Historic citadel renowned for diamond trade history, royal palaces, and ingenious acoustic engineering.")
+                    .imageUrl("https://images.unsplash.com/photo-1605649487212-47bdab064df8?auto=format&fit=crop&w=800&q=80")
+                    .entryFee("₹25 (~$0.30)")
+                    .openingHours("09:00 AM - 05:30 PM")
+                    .rating(4.7)
+                    .bestTimeToVisit("Late afternoon for sound & light show")
+                    .latitude(17.3833)
+                    .longitude(78.4011)
+                    .build(),
+                com.designtravel.model.Place.builder()
+                    .id("hyd-chowmahalla")
+                    .name("Chowmahalla Palace")
+                    .category("Royal Nizami Palace")
+                    .description("Magnificent palace of the Nizams of Hyderabad, featuring neoclassical courtyards, grand chandeliers, and vintage car collections.")
+                    .imageUrl("https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80")
+                    .entryFee("₹100 (~$1.20)")
+                    .openingHours("10:00 AM - 05:00 PM (Closed Fridays)")
+                    .rating(4.7)
+                    .bestTimeToVisit("Midday architectural tour")
+                    .latitude(17.3578)
+                    .longitude(78.4717)
                     .build()
             );
         } else {
