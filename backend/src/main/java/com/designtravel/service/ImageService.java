@@ -78,6 +78,30 @@ public class ImageService {
      */
     private List<ImageDto> getCuratedFallbackImages(String query, int limit) {
         Map<String, List<String>> destinationPhotoMap = Map.of(
+            "munnar", List.of(
+                "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1600&q=85"
+            ),
+            "hyderabad", List.of(
+                "https://images.unsplash.com/photo-1605649487212-47bdab064df8?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1600&q=85"
+            ),
+            "ooty", List.of(
+                "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1600&q=85"
+            ),
+            "jaipur", List.of(
+                "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1599818496387-34d31481b1be?auto=format&fit=crop&w=1600&q=85"
+            ),
+            "goa", List.of(
+                "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=85",
+                "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=85"
+            ),
             "kyoto", List.of(
                 "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1600&q=85",
                 "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1600&q=85",
@@ -110,9 +134,9 @@ public class ImageService {
         String key = destinationPhotoMap.keySet().stream()
                 .filter(k -> query.toLowerCase().contains(k))
                 .findFirst()
-                .orElse("paris");
+                .orElse("munnar");
 
-        List<String> urls = destinationPhotoMap.getOrDefault(key, destinationPhotoMap.get("paris"));
+        List<String> urls = destinationPhotoMap.getOrDefault(key, destinationPhotoMap.get("munnar"));
         List<ImageDto> list = new ArrayList<>();
         for (int i = 0; i < Math.min(urls.size(), limit); i++) {
             String url = urls.get(i);

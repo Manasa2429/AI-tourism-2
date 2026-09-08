@@ -1,6 +1,7 @@
 package com.designtravel.seeder;
 
 import com.designtravel.model.Destination;
+import com.designtravel.model.NearbyPlace;
 import com.designtravel.model.Place;
 import com.designtravel.repository.DestinationRepository;
 import org.slf4j.Logger;
@@ -489,6 +490,60 @@ public class DataSeeder implements CommandLineRunner {
                         .latitude(10.0895)
                         .longitude(77.0545)
                         .bestTimeToVisit("Morning processing demonstration")
+                        .build()
+                ))
+                .nearbyPlaces(List.of(
+                    NearbyPlace.builder()
+                        .id("nb-mun-1")
+                        .name("Kolukkumalai Tea Estate & Ridge Peak")
+                        .category("Highest Tea Mountain in the World")
+                        .distance("35 km away")
+                        .distanceKm(35)
+                        .travelTime("1 hr 45 min via 4x4 Hill Jeep")
+                        .description("World highest organic orthodox tea plantation standing at 7,900 feet, famed for legendary sunrises above an ocean of clouds.")
+                        .imageUrl("https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80")
+                        .entryFee("₹100 + Jeep Safari")
+                        .rating(4.9)
+                        .bestTimeToVisit("Early morning sunrise")
+                        .build(),
+                    NearbyPlace.builder()
+                        .id("nb-mun-2")
+                        .name("Marayoor Sandalwood Forest & Megalithic Dolmens")
+                        .category("Ancient Sandalwood Reserve & Stone Age Relics")
+                        .distance("40 km away")
+                        .distanceKm(40)
+                        .travelTime("1 hr 15 min via SH-17 Mountain Highway")
+                        .description("Kerala only natural reserve of 65,000 fragrant sandalwood trees and prehistoric Neolithic burial chambers overlooking the Pambar River valley.")
+                        .imageUrl("https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80")
+                        .entryFee("Free")
+                        .rating(4.8)
+                        .bestTimeToVisit("Morning forest walk")
+                        .build(),
+                    NearbyPlace.builder()
+                        .id("nb-mun-3")
+                        .name("Chinnar Wildlife Sanctuary")
+                        .category("Deciduous Bio-Reserve & Tribal Trekking")
+                        .distance("55 km away")
+                        .distanceKm(55)
+                        .travelTime("1 hr 40 min via scenic Ghat Road")
+                        .description("Unique rain-shadow bio-reserve harboring the endangered grizzled giant squirrel, star tortoises, and tufted grey langurs.")
+                        .imageUrl("https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80")
+                        .entryFee("₹100")
+                        .rating(4.8)
+                        .bestTimeToVisit("Morning wildlife trek")
+                        .build(),
+                    NearbyPlace.builder()
+                        .id("nb-mun-4")
+                        .name("Thekkady & Periyar Tiger Reserve")
+                        .category("Tiger Reserve & Artificial Lake Safari")
+                        .distance("90 km away")
+                        .distanceKm(90)
+                        .travelTime("2.5 hrs via Cardamom Hills Highway")
+                        .description("Renowned wildlife sanctuary surrounding Lake Periyar where wild elephant herds, sambar deer, and tigers roam through evergreen forests.")
+                        .imageUrl("https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80")
+                        .entryFee("₹450 (with boat safari)")
+                        .rating(4.9)
+                        .bestTimeToVisit("Morning lake boat cruise")
                         .build()
                 ))
                 .build()

@@ -18,7 +18,7 @@ export default function PhotoGallery({ destination, destinationName, initialImag
   const fetchPhotos = async () => {
     setLoading(true);
     try {
-      const photos = await imageService.searchPhotos(name + " travel scenery architecture", 6);
+      const photos = await imageService.searchPhotos(name, 8);
       if (photos && photos.length > 0) {
         setApiImages(photos);
       }
@@ -80,11 +80,11 @@ export default function PhotoGallery({ destination, destinationName, initialImag
       allPhotos.push({
         id: `photo-api-${img.id || idx}`,
         url: img.urlRegular || img,
-        title: `${name} Architecture & Atmosphere`,
+        title: img.title || `${name} Scenic Atmosphere`,
         category: 'Scenery & Atmosphere',
         tag: 'scenery',
         badge: 'Atmospheric',
-        photographer: img.photographerName || 'Unsplash Photography'
+        photographer: img.photographerName || 'Authentic Photography'
       });
     });
   }

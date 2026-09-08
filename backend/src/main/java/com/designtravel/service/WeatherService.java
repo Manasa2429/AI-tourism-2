@@ -125,7 +125,8 @@ public class WeatherService {
         }
 
         String forecastUrl = String.format(
-                "https://api.open-meteo.com/v1/forecast?latitude=%f&longitude=%f&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m",
+                java.util.Locale.US,
+                "https://api.open-meteo.com/v1/forecast?latitude=%.4f&longitude=%.4f&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m",
                 targetLat, targetLon
         );
 

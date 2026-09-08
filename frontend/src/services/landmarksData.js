@@ -4282,7 +4282,9 @@ export function getAuthenticRealLandmarks(destName = '', dayNum = 1) {
 
 export function getCuratedNearbyPlaces(destName = '') {
   const lower = (destName || '').toLowerCase();
-  if (lower.includes('munnar') || lower.includes('idukki') || lower.includes('kerala')) {
+  
+  // 1. Munnar & Idukki Western Ghats Sanctuaries
+  if (lower.includes('munnar') || lower.includes('idukki') || lower.includes('devikulam') || lower.includes('kerala')) {
     return [
       {
         id: 'nb-munnar-1',
@@ -4293,6 +4295,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '1 hr 45 min via 4x4 Hill Jeep',
         description: 'World highest organic orthodox tea plantation standing at 7,900 feet, famed for legendary sunrises above an ocean of clouds.',
         imageUrl: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80',
+        latitude: 10.0827,
+        longitude: 77.2289,
         entryFee: '₹100 + Jeep Safari',
         rating: 4.9,
         bestTimeToVisit: 'Early morning sunrise'
@@ -4306,6 +4310,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '1 hr 15 min via SH-17 Mountain Highway',
         description: 'Kerala only natural reserve of 65,000 fragrant sandalwood trees and prehistoric Neolithic burial chambers overlooking the Pambar River valley.',
         imageUrl: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80',
+        latitude: 10.2798,
+        longitude: 77.1585,
         entryFee: 'Free',
         rating: 4.8,
         bestTimeToVisit: 'Morning forest walk'
@@ -4319,6 +4325,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '1 hr 40 min via scenic Ghat Road',
         description: 'Unique rain-shadow bio-reserve harboring the endangered grizzled giant squirrel, star tortoises, and tufted grey langurs.',
         imageUrl: 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=800&q=80',
+        latitude: 10.3347,
+        longitude: 77.2177,
         entryFee: '₹100',
         rating: 4.8,
         bestTimeToVisit: 'Morning wildlife trek'
@@ -4332,13 +4340,265 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '2.5 hrs via Cardamom Hills Highway',
         description: 'Renowned wildlife sanctuary surrounding Lake Periyar where wild elephant herds, sambar deer, and tigers roam through evergreen forests.',
         imageUrl: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80',
+        latitude: 9.6031,
+        longitude: 77.1615,
         entryFee: '₹450 (with boat safari)',
         rating: 4.9,
         bestTimeToVisit: 'Morning lake boat cruise'
+      },
+      {
+        id: 'nb-munnar-5',
+        name: 'Anayirangal Dam & Elephant Corridor',
+        category: 'Pristine Reservoir & Wild Elephant Haven',
+        distance: '22 km away',
+        distanceKm: 22,
+        travelTime: '45 min via Munnar-Madurai Road',
+        description: 'Splendid reservoir framed by Tata tea estates and evergreen forests, where herds of wild elephants frequent the waterbanks.',
+        imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        latitude: 10.0090,
+        longitude: 77.1983,
+        entryFee: '₹20 (Speedboat ₹350)',
+        rating: 4.8,
+        bestTimeToVisit: 'Late afternoon elephant viewing'
+      },
+      {
+        id: 'nb-munnar-6',
+        name: 'Kanthalloor Fruit Orchards & Terraced Village',
+        category: 'Cool Climate Agro-Tourism & Apple Orchards',
+        distance: '48 km away',
+        distanceKm: 48,
+        travelTime: '1 hr 30 min via Marayoor SH-17',
+        description: 'Idyllic terraced mountain hamlet known as the Kashmir of Kerala, famous for organic apple orchards, plums, oranges, and strawberry farms.',
+        imageUrl: 'https://images.unsplash.com/photo-1598598795009-f80c5072e665?auto=format&fit=crop&w=800&q=80',
+        latitude: 10.2982,
+        longitude: 77.2023,
+        entryFee: '₹50 orchard entry',
+        rating: 4.7,
+        bestTimeToVisit: 'Morning harvest stroll'
       }
     ];
   }
 
+  // 2. Hyderabad & Telangana Heritage
+  if (lower.includes('hyderabad') || lower.includes('telangana') || lower.includes('secunderabad')) {
+    return [
+      {
+        id: 'nb-hyd-1',
+        name: 'Golconda Fort & Acoustic Grand Hall',
+        category: 'Medieval Monolithic Citadel & Diamond Vault',
+        distance: '11 km away',
+        distanceKm: 11,
+        travelTime: '25 min via Inner Ring Road',
+        description: 'Impregnable 16th-century Qutb Shahi fortress legendary for world-famous Koh-i-Noor diamond vaults and whispering acoustic archways.',
+        imageUrl: 'https://images.unsplash.com/photo-1605649487212-47bdab064df8?auto=format&fit=crop&w=800&q=80',
+        latitude: 17.3833,
+        longitude: 78.4011,
+        entryFee: '₹25 (Light & Sound ₹140)',
+        rating: 4.8,
+        bestTimeToVisit: 'Late afternoon into sound & light show'
+      },
+      {
+        id: 'nb-hyd-2',
+        name: 'Ramoji Film City & Thematic Worlds',
+        category: 'World Largest Film Studio Complex',
+        distance: '30 km away',
+        distanceKm: 30,
+        travelTime: '45 min via Vijayawada Highway',
+        description: 'Guinness World Record holding thematic studio complex covering 2,000 acres of cinematic sets, palaces, and entertainment zones.',
+        imageUrl: 'https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=800&q=80',
+        latitude: 17.2543,
+        longitude: 78.6808,
+        entryFee: '₹1,350',
+        rating: 4.8,
+        bestTimeToVisit: 'Full day excursion (09:00 AM opening)'
+      },
+      {
+        id: 'nb-hyd-3',
+        name: 'Ananthagiri Hills & Vikarabad Forest',
+        category: 'Ancient Teakwood Hills & Musi River Origin',
+        distance: '75 km away',
+        distanceKm: 75,
+        travelTime: '1 hr 45 min via Shankarpally Road',
+        description: 'Scenic dense teak forests and tranquil hill resort containing the historic 400-year-old Sri Anantha Padmanabha Swamy temple and trekking trails.',
+        imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+        latitude: 17.3117,
+        longitude: 77.8682,
+        entryFee: 'Free',
+        rating: 4.7,
+        bestTimeToVisit: 'Early morning hill trek'
+      },
+      {
+        id: 'nb-hyd-4',
+        name: 'Bhongir Fort & Monolithic Rock',
+        category: '10th-Century Western Chalukya Monolith',
+        distance: '48 km away',
+        distanceKm: 48,
+        travelTime: '1 hr via Warangal Highway (NH-163)',
+        description: 'Colossal single isolated egg-shaped rock hill fortress rising 500 feet, offering adrenaline rock climbing and sweeping Deccan plateau vistas.',
+        imageUrl: 'https://images.unsplash.com/photo-1599818496387-34d31481b1be?auto=format&fit=crop&w=800&q=80',
+        latitude: 17.5100,
+        longitude: 78.8890,
+        entryFee: '₹20',
+        rating: 4.7,
+        bestTimeToVisit: 'Morning climb before noon heat'
+      }
+    ];
+  }
+
+  // 3. Ooty & Nilgiri Biosphere
+  if (lower.includes('ooty') || lower.includes('udhagamandalam') || lower.includes('nilgiri') || lower.includes('coonoor')) {
+    return [
+      {
+        id: 'nb-ooty-1',
+        name: 'Coonoor & Sim\'s Botanical Park',
+        category: 'Historic Tea Ridge & Japanese Terraced Garden',
+        distance: '19 km away',
+        distanceKm: 19,
+        travelTime: '35 min via UNESCO Nilgiri Toy Train',
+        description: 'Charming colonial hill station surrounded by sweeping tea estates, featuring rare temperate species and the dramatic Dolphin\'s Nose gorge view.',
+        imageUrl: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80',
+        latitude: 11.3530,
+        longitude: 76.7959,
+        entryFee: '₹30',
+        rating: 4.8,
+        bestTimeToVisit: 'Morning toy train ride'
+      },
+      {
+        id: 'nb-ooty-2',
+        name: 'Pykara Waterfalls & Forest Lake',
+        category: 'Sacred Toda River & Cascading Rapids',
+        distance: '21 km away',
+        distanceKm: 21,
+        travelTime: '40 min via Mysore Highway',
+        description: 'Majestic series of cascades through pine valleys and a tranquil reservoir where speedboating amidst eucalyptus trees is celebrated.',
+        imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        latitude: 11.4580,
+        longitude: 76.5960,
+        entryFee: '₹10 (Boating ₹300)',
+        rating: 4.8,
+        bestTimeToVisit: 'Midday boating and waterfall walk'
+      },
+      {
+        id: 'nb-ooty-3',
+        name: 'Mudumalai National Park & Tiger Reserve',
+        category: 'Nilgiri Biosphere Wildlife Sanctuary',
+        distance: '36 km away',
+        distanceKm: 36,
+        travelTime: '1 hr 15 min via 36 Hairpin Bend Ghat',
+        description: 'Famous wildlife reserve on the Karnataka-Kerala border sheltering Bengal tigers, Asian elephants, leopards, and over 200 bird species.',
+        imageUrl: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80',
+        latitude: 11.5623,
+        longitude: 76.5342,
+        entryFee: '₹340 (Safari included)',
+        rating: 4.9,
+        bestTimeToVisit: 'Early morning open jeep safari'
+      }
+    ];
+  }
+
+  // 4. Jaipur & Royal Rajasthan
+  if (lower.includes('jaipur') || lower.includes('rajasthan')) {
+    return [
+      {
+        id: 'nb-jpr-1',
+        name: 'Amer Fort & Maota Lake Mirror',
+        category: 'UNESCO Rajput-Mughal Masterpiece',
+        distance: '11 km away',
+        distanceKm: 11,
+        travelTime: '25 min via Amer Road',
+        description: 'Magnificent 16th-century yellow sandstone fortress featuring the thousand-mirror Sheesh Mahal and ornate Mughal pleasure gardens.',
+        imageUrl: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=80',
+        latitude: 26.9855,
+        longitude: 75.8513,
+        entryFee: '₹100',
+        rating: 4.9,
+        bestTimeToVisit: 'Morning opening (08:30 AM)'
+      },
+      {
+        id: 'nb-jpr-2',
+        name: 'Nahargarh Fort Sunset Clifftop',
+        category: 'Aravalli Ridge Lookout & Royal Retreat',
+        distance: '15 km away',
+        distanceKm: 15,
+        travelTime: '35 min via winding hill route',
+        description: 'Perched on the rugged Aravalli ridge, offering the definitive panoramic sunset view overlooking the entirety of the glowing Pink City.',
+        imageUrl: 'https://images.unsplash.com/photo-1599818496387-34d31481b1be?auto=format&fit=crop&w=800&q=80',
+        latitude: 26.9372,
+        longitude: 75.8156,
+        entryFee: '₹50',
+        rating: 4.8,
+        bestTimeToVisit: 'Golden hour sunset'
+      },
+      {
+        id: 'nb-jpr-3',
+        name: 'Abhaneri Chand Baori Stepwell',
+        category: 'Ancient 8th-Century Geometric Wonder',
+        distance: '95 km away',
+        distanceKm: 95,
+        travelTime: '1 hr 45 min via Agra Highway (NH-21)',
+        description: 'One of the deepest and largest stepwells in the world, with 3,500 narrow stone steps descending 13 stories in perfect mathematical symmetry.',
+        imageUrl: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80',
+        latitude: 27.0073,
+        longitude: 76.6064,
+        entryFee: '₹25',
+        rating: 4.9,
+        bestTimeToVisit: 'Morning architectural exploration'
+      }
+    ];
+  }
+
+  // 5. Goa & Konkan Coast
+  if (lower.includes('goa') || lower.includes('panaji')) {
+    return [
+      {
+        id: 'nb-goa-1',
+        name: 'Dudhsagar Waterfalls & Bhagwan Mahavir Reserve',
+        category: 'Four-Tiered 310m Sea of Milk Cascade',
+        distance: '60 km away',
+        distanceKm: 60,
+        travelTime: '1 hr 45 min via 4x4 Jungle Safari',
+        description: 'One of India\'s tallest waterfalls thundering through lush Western Ghats jungles, crossed by the iconic scenic railway arch bridge.',
+        imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        latitude: 15.3144,
+        longitude: 74.3143,
+        entryFee: '₹500 (Jeep Safari)',
+        rating: 4.9,
+        bestTimeToVisit: 'Morning jeep safari into falls pool'
+      },
+      {
+        id: 'nb-goa-2',
+        name: 'Old Goa & Basilica of Bom Jesus',
+        category: 'UNESCO Baroque Portuguese Capital',
+        distance: '12 km away',
+        distanceKm: 12,
+        travelTime: '25 min via NH-748',
+        description: '16th-century Portuguese imperial religious center housing the sacred relics of St. Francis Xavier and the colossal Sé Cathedral bells.',
+        imageUrl: 'https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80',
+        latitude: 15.5009,
+        longitude: 73.9116,
+        entryFee: 'Free',
+        rating: 4.8,
+        bestTimeToVisit: 'Morning historic walk'
+      },
+      {
+        id: 'nb-goa-3',
+        name: 'Fort Aguada & Sinquerim Clifftop',
+        category: '17th-Century Portuguese Ocean Bastion',
+        distance: '16 km away',
+        distanceKm: 16,
+        travelTime: '30 min coastal drive',
+        description: 'Preserved red laterite fortress and 1864 four-story lighthouse standing guard over the Arabian Sea and Mandovi River estuary.',
+        imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+        latitude: 15.4929,
+        longitude: 73.7737,
+        entryFee: '₹25',
+        rating: 4.7,
+        bestTimeToVisit: 'Sunset ocean vistas'
+      }
+    ];
+  }
+
+  // 6. New York & Tri-State Regional Escapes
   if (lower.includes('new york') || lower.includes('nyc')) {
     return [
       {
@@ -4350,6 +4610,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '2.5 hrs via LIRR Cannonball',
         description: 'Pristine Atlantic dunes, cedar-shingled seaside estates, and the historic 1796 George Washington commissioned Montauk Point Lighthouse.',
         imageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+        latitude: 41.0714,
+        longitude: -71.8564,
         entryFee: 'Free (Lighthouse $15)',
         rating: 4.9,
         bestTimeToVisit: 'Morning coastal walk'
@@ -4363,6 +4625,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '1 hr 15 min via Metro-North Hudson Line',
         description: '500-acre open-air museum of monumental modern steel sculptures set against the rolling hills of the Hudson River highlands.',
         imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80',
+        latitude: 41.4258,
+        longitude: -74.0583,
         entryFee: '$22',
         rating: 4.8,
         bestTimeToVisit: 'Midday outdoor art stroll'
@@ -4376,6 +4640,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '1 hr 20 min via LIRR & Ferry',
         description: 'Car-free barrier island with wooden boardwalks through the sunken maritime Sunken Forest and wild white sand beaches.',
         imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        latitude: 40.6974,
+        longitude: -73.0182,
         entryFee: 'Free (Ferry $23 roundtrip)',
         rating: 4.8,
         bestTimeToVisit: 'Afternoon ocean stroll'
@@ -4383,6 +4649,7 @@ export function getCuratedNearbyPlaces(destName = '') {
     ];
   }
 
+  // 7. Kyoto & Kansai Cultural Cradle
   if (lower.includes('kyoto') || lower.includes('japan')) {
     return [
       {
@@ -4394,6 +4661,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '35 min via JR Miyakoji Rapid',
         description: 'Ancient 8th-century capital where hundreds of sacred bowing sika deer roam freely around the Great Buddha bronze statue.',
         imageUrl: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80',
+        latitude: 34.6851,
+        longitude: 135.8048,
         entryFee: 'Free (Temple ¥600)',
         rating: 4.9,
         bestTimeToVisit: 'Morning when deer are active'
@@ -4407,6 +4676,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '20 min via JR Nara Line',
         description: 'The historic cradle of Japanese ceremonial matcha and the 1053 Phoenix Hall, celebrated on the 10-yen coin.',
         imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80',
+        latitude: 34.8893,
+        longitude: 135.8077,
         entryFee: '¥600 (~$4)',
         rating: 4.8,
         bestTimeToVisit: 'Midday matcha tasting'
@@ -4420,6 +4691,8 @@ export function getCuratedNearbyPlaces(destName = '') {
         travelTime: '30 min via Keihan / JR Special Rapid',
         description: 'Japan\'s kitchen: towering 16th-century samurai fortress surrounded by moats, followed by neon-lit street food canal avenues.',
         imageUrl: 'https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80',
+        latitude: 34.6873,
+        longitude: 135.5262,
         entryFee: 'Free (Castle ¥600)',
         rating: 4.8,
         bestTimeToVisit: 'Late afternoon into glowing evening'
@@ -4427,6 +4700,7 @@ export function getCuratedNearbyPlaces(destName = '') {
     ];
   }
 
+  // 8. Paris & Île-de-France Châteaux
   if (lower.includes('paris') || lower.includes('france')) {
     return [
       {
@@ -4477,6 +4751,7 @@ export function getCuratedNearbyPlaces(destName = '') {
     ];
   }
 
+  // 9. Banff & Canadian Rockies Glacial Lakes
   if (lower.includes('banff') || lower.includes('rockies') || lower.includes('alberta')) {
     return [
       {
@@ -4527,6 +4802,7 @@ export function getCuratedNearbyPlaces(destName = '') {
     ];
   }
 
+  // 10. Rome & Lazio Historic Terroir
   if (lower.includes('rome') || lower.includes('roma')) {
     return [
       {
@@ -4577,6 +4853,58 @@ export function getCuratedNearbyPlaces(destName = '') {
     ];
   }
 
+  // 11. Zurich & Swiss Alpine Wonders
+  if (lower.includes('zurich') || lower.includes('zürich') || lower.includes('switzerland') || lower.includes('swiss')) {
+    return [
+      {
+        id: 'nb-zrh-1',
+        name: 'Uetliberg Mountain Belvedere',
+        category: 'Panoramic Alpine Vista & Tower',
+        distance: '10 km away',
+        distanceKm: 10,
+        travelTime: '20 min via S10 SZU Train',
+        description: 'Zurich\'s local mountain soaring 870m high, providing sweeping views across Zurich lake, the Limmat valley, and snowcapped Swiss Alps.',
+        imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+        latitude: 47.3496,
+        longitude: 8.4913,
+        entryFee: 'Free (Tower CHF 2)',
+        rating: 4.8,
+        bestTimeToVisit: 'Clear morning or golden sunset'
+      },
+      {
+        id: 'nb-zrh-2',
+        name: 'Rhine Falls & Laufen Castle',
+        category: 'Europe Largest Waterfall Spectacle',
+        distance: '48 km away',
+        distanceKm: 48,
+        travelTime: '45 min via S9 / S12 Train',
+        description: 'Thundering 150m-wide glacial waterfall plunging 23 meters over limestone crags, viewed from historic medieval castle catwalks.',
+        imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+        latitude: 47.6779,
+        longitude: 8.6156,
+        entryFee: 'CHF 5',
+        rating: 4.9,
+        bestTimeToVisit: 'Morning boat ride to center rock'
+      },
+      {
+        id: 'nb-zrh-3',
+        name: 'Lucerne & Mount Pilatus Lake Excursion',
+        category: 'Medieval Wooden Bridges & Dragon Mountain',
+        distance: '52 km away',
+        distanceKm: 52,
+        travelTime: '45 min via IR75 Direct Express',
+        description: 'Iconic 14th-century Chapel Bridge across the Reuss River and the world\'s steepest cogwheel railway ascending Mount Pilatus.',
+        imageUrl: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=800&q=80',
+        latitude: 47.0502,
+        longitude: 8.3093,
+        entryFee: 'Free (Pilatus Cogwheel CHF 72)',
+        rating: 4.9,
+        bestTimeToVisit: 'Full day lake & cogwheel loop'
+      }
+    ];
+  }
+
   // Only return genuine verified nearby places; never invent fictional vineyards, coastal villages, or glacier lakes
   return [];
 }
+

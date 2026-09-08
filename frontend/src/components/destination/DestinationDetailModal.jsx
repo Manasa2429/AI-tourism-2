@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, MapPin, Calendar, DollarSign, Globe, Star, Sparkles, Bookmark, Share2, Compass, Radio } from 'lucide-react';
 import WeatherWidget from './WeatherWidget';
 import FamousPlacesGrid from './FamousPlacesGrid';
@@ -6,11 +6,17 @@ import NearbyFamousPlaces from './NearbyFamousPlaces';
 import PhotoGallery from './PhotoGallery';
 import { useLocation } from '../../context/LocationContext';
 import { useSavedTrips } from '../../context/SavedTripsContext';
-import { getNearbyFamousPlaces } from '../../services/api';
+import { getNearbyFamousPlaces, fetchRealNearbyPlaces } from '../../services/api';
 
 export default function DestinationDetailModal({ destination, onClose, onOpenPlannerWithDest }) {
   const { getDistanceTo } = useLocation();
   const { isFavorite, toggleFavorite } = useSavedTrips();
+
+  const [activeNearby, setActiveNearby] = useState(() => {
+    return destination?.nearbyPlaces && destination.nearbyPlaces.length > 0
+      ? destination.nearbyPlaces
+      : getNearbyFamousPlaces(destination?.name);
+  });
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -19,13 +25,29 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
     };
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
+    const initial = destination?.nearbyPlaces && destination.nearbyPlaces.length > 0
+      ? destination.nearbyPlaces
+      : getNearbyFamousPlaces(destination?.name);
+
+    if (initial && initial.length > 0) {
+      setActiveNearby(initial);
+    } else if (destination?.latitude && destination?.longitude) {
+      fetchRealNearbyPlaces(destination.latitude, destination.longitude, destination.name).then(places => {
+        if (isMounted && places && places.length > 0) {
+          setActiveNearby(places);
+        }
+      });
+    }
+    return () => { isMounted = false; };
+  }, [destination]);
+
   if (!destination) return null;
 
   const distance = getDistanceTo(destination.latitude, destination.longitude);
   const favorited = isFavorite(destination.id);
-  const nearbyPlaces = destination.nearbyPlaces && destination.nearbyPlaces.length > 0
-    ? destination.nearbyPlaces
-    : getNearbyFamousPlaces(destination.name);
+  const nearbyPlaces = activeNearby;
 
   return (
     <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-xl overflow-y-auto flex justify-center p-2 sm:p-6 animate-fade-in">
