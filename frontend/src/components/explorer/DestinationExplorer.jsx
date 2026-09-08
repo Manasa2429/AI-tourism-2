@@ -101,7 +101,7 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
 
     const target = placeNameToSearch.trim();
     setDiscovering(true);
-    setDiscoveryStatus(`Querying Aetheria planetary geographer for "${target}"...`);
+    setDiscoveryStatus(`Searching travel details for "${target}"...`);
 
     try {
       const existing = destinations.find(
@@ -114,7 +114,7 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
         return;
       }
 
-      setDiscoveryStatus(`Synthesizing architectural sights, live weather & high-res imagery for "${target}"...`);
+      setDiscoveryStatus(`Finding top attractions, live weather & photos for "${target}"...`);
       const newDest = await destinationService.discoverDestination(target);
 
       setDestinations((prev) => [newDest, ...prev.filter((d) => d.id !== newDest.id)]);
@@ -148,14 +148,14 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
         <div>
           <div className="flex items-center space-x-2 text-xs uppercase font-mono-telemetry tracking-widest text-cyan-400 font-bold mb-2">
             <Radio className="w-4 h-4 text-cyan-400 animate-pulse" />
-            <span>02 / Planetary Sanctuaries Archive</span>
+            <span>02 / Explore Destinations</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            Curated World Destinations
+            Top Destinations Worldwide
           </h2>
         </div>
         <p className="text-xs sm:text-sm text-slate-300/80 max-w-md leading-relaxed font-light">
-          Explore our indexed planetary catalog or query <strong>any place on Earth</strong>. Open any sanctuary to inspect live meteorological telemetry, architectural sights, and photographic collections.
+          Browse our travel destinations or search for <strong>any place on Earth</strong>. Click any destination to see real-time weather, famous landmarks, and photo galleries.
         </p>
       </div>
 
@@ -174,7 +174,7 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
               type="text"
               value={internalSearch}
               onChange={(e) => setInternalSearch(e.target.value)}
-              placeholder="Query any location on Earth (e.g. Santorini, Dubai, Prague, Hawaii, Iceland)..."
+              placeholder="Search any destination (e.g. Munnar, Paris, Kyoto, Dubai, Iceland)..."
               className="w-full bg-transparent border-none text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-0 font-sans"
             />
             {internalSearch && (
@@ -201,7 +201,7 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
         {/* Global Quick-Discovery Suggestions */}
         <div className="flex items-center space-x-2 overflow-x-auto pt-3 mt-3 border-t border-aetheria-border scrollbar-none text-xs">
           <span className="text-[10px] uppercase font-mono-telemetry font-bold text-slate-400 shrink-0 pl-1">
-            Station Quick Picks:
+            Popular Places:
           </span>
           {globalPills.map((place) => (
             <button
@@ -238,10 +238,10 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
             </div>
             <div>
               <h4 className="font-display text-xl font-bold text-white">
-                Discover Any Destination: "{activeQuery}"
+                Search Worldwide: "{activeQuery}"
               </h4>
               <p className="text-xs text-slate-300/90 leading-relaxed max-w-xl mt-1 font-light">
-                Looking for a sanctuary beyond our pre-indexed catalog? Synthesize a live expedition dossier for <strong>{activeQuery}</strong> with real-time weather, verified architectural landmarks, and photographic collections.
+                Looking for somewhere not on our list? Generate a complete travel guide for <strong>{activeQuery}</strong> with live weather, top attractions, and photos.
               </p>
             </div>
           </div>
@@ -254,11 +254,11 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
             {discovering ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>Synthesizing...</span>
+                <span>Loading Guide...</span>
               </>
             ) : (
               <>
-                <span>Curate Dossier</span>
+                <span>View Travel Guide</span>
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
@@ -290,12 +290,12 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
             <Globe2 className="w-8 h-8" />
           </div>
           <h3 className="font-display text-2xl font-bold text-white mb-2">
-            {activeQuery ? `Explore "${activeQuery}" Worldwide` : 'No Sanctuaries Found Matching Criteria'}
+            {activeQuery ? `Explore "${activeQuery}" Worldwide` : 'No Destinations Found'}
           </h3>
           <p className="text-xs text-slate-300 mb-6 leading-relaxed font-light">
             {activeQuery
-              ? `"${activeQuery}" is not yet indexed in our pre-loaded catalog, but the Aetheria intelligence engine can synthesize its complete dossier with GPS coordinates, live weather telemetry, landmarks, and photos in seconds!`
-              : 'No pre-loaded destinations match the selected continent and vibe filters. Reset your filters to view all global sanctuaries or search for any location on Earth.'}
+              ? `"${activeQuery}" isn't in our featured list yet, but we can generate a complete travel guide with map coordinates, live weather, attractions, and photos right now!`
+              : 'No destinations match your selected filters. Try resetting your filters or search for another location.'}
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -308,12 +308,12 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
                 {discovering ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span>Curating Dossier...</span>
+                    <span>Generating Travel Guide...</span>
                   </>
                 ) : (
                   <>
                     <Sparkles className="w-4 h-4" />
-                    <span>Generate Dossier for "{activeQuery}"</span>
+                    <span>Explore "{activeQuery}"</span>
                   </>
                 )}
               </button>
@@ -338,7 +338,7 @@ export default function DestinationExplorer({ onSelectDestination, externalSearc
             </div>
             <div>
               <h3 className="font-display text-2xl font-bold text-white">
-                Synthesizing Sanctuary
+                Loading Destination Info
               </h3>
               <p className="text-xs text-slate-300 leading-relaxed mt-1 font-light">
                 {discoveryStatus}

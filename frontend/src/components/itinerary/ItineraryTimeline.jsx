@@ -66,24 +66,24 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
             <div className="flex flex-wrap items-center gap-2 mb-2.5">
               <span className="text-[10px] uppercase font-mono-telemetry font-bold px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 flex items-center space-x-1">
                 <ShieldCheck className="w-3 h-3 text-cyan-400" />
-                <span>Verified AI Expedition</span>
+                <span>AI Trip Itinerary</span>
               </span>
               <span className="text-xs text-slate-300 font-mono-telemetry font-semibold">
                 {itinerary.startDate} → {itinerary.endDate}
               </span>
               {itinerary.budgetLevel && (
                 <span className="text-[10px] uppercase font-mono-telemetry px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-bold">
-                  {itinerary.budgetLevel} Tier
+                  {itinerary.budgetLevel} Budget
                 </span>
               )}
             </div>
 
             <h2 className="font-display text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              {itinerary.tripTitle || `${itinerary.destinationName} Expedition`}
+              {itinerary.tripTitle || `${itinerary.destinationName} Trip`}
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-300/90 mt-2 max-w-3xl leading-relaxed font-light">
-              {itinerary.summary || `Synthesized multi-day architectural expedition for ${itinerary.destinationName}. Follow the day-by-day sequence with verified distances, scheduled time slots, and map waypoints.`}
+              {itinerary.summary || `Complete multi-day travel plan for ${itinerary.destinationName}. Follow the day-by-day stops with real distances, schedules, and map directions.`}
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
               }`}
             >
               <Bookmark className="w-3.5 h-3.5" />
-              <span>{savedSuccess ? 'Blueprint Saved' : 'Save Plan'}</span>
+              <span>{savedSuccess ? 'Itinerary Saved' : 'Save Plan'}</span>
             </button>
 
             <button
@@ -127,17 +127,17 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
               <span>Total Stops</span>
             </div>
             <div className="text-sm sm:text-base font-bold text-white font-display">
-              {itinerary.totalTripStops || stops.length * days.length} Curated Sights
+              {itinerary.totalTripStops || stops.length * days.length} Places to Visit
             </div>
           </div>
 
           <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] font-mono-telemetry">
             <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold flex items-center space-x-1.5 mb-1">
               <Navigation className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Total Traversal</span>
+              <span>Total Distance</span>
             </div>
             <div className="text-sm sm:text-base font-bold text-white font-display">
-              ~{itinerary.totalTripDistanceKm || (parseFloat(totalDayKm) * days.length).toFixed(1)} km Distance
+              ~{itinerary.totalTripDistanceKm || (parseFloat(totalDayKm) * days.length).toFixed(1)} km
             </div>
           </div>
 
@@ -201,7 +201,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
                   {currentDay.dayStage || `Day ${currentDay.dayNumber || activeDayIndex + 1} Itinerary`}
                 </span>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-white mt-0.5">
-                  Day {currentDay.dayNumber || activeDayIndex + 1}: {currentDay.theme || currentDay.title || 'Sanctuary Exploration'}
+                  Day {currentDay.dayNumber || activeDayIndex + 1}: {currentDay.theme || currentDay.title || 'Explore Destination'}
                 </h3>
                 {currentDay.dateFormatted && (
                   <p className="text-xs text-slate-400 font-mono-telemetry mt-0.5">
@@ -221,7 +221,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
             <div className="mb-6 p-4 rounded-2xl bg-cyan-500/[0.06] border border-cyan-500/20 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono-telemetry">
               <div>
                 <span className="text-[10px] uppercase tracking-wider text-slate-400 block mb-0.5">
-                  Day Traversal:
+                  Day Distance:
                 </span>
                 <strong className="text-cyan-300 text-sm font-sans flex items-center gap-1">
                   <Navigation className="w-3.5 h-3.5 text-cyan-400" />
@@ -231,7 +231,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
 
               <div>
                 <span className="text-[10px] uppercase tracking-wider text-slate-400 block mb-0.5">
-                  Exploration Time:
+                  Estimated Time:
                 </span>
                 <strong className="text-emerald-300 text-sm font-sans flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-emerald-400" />
@@ -241,7 +241,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
 
               <div>
                 <span className="text-[10px] uppercase tracking-wider text-slate-400 block mb-0.5">
-                  Day Window:
+                  Daily Schedule:
                 </span>
                 <strong className="text-white text-xs font-sans">
                   {currentDay.dayStartTime || '08:30 AM'} – {currentDay.dayEndTime || '08:30 PM'}
@@ -250,7 +250,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
 
               <div>
                 <span className="text-[10px] uppercase tracking-wider text-slate-400 block mb-0.5">
-                  Primary Transit:
+                  Transport Mode:
                 </span>
                 <strong className="text-slate-200 text-xs font-sans truncate block">
                   {transitMode}
@@ -347,7 +347,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
                         <div className="p-3 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/25 text-xs text-emerald-200 space-y-0.5">
                           <div className="text-[10px] uppercase font-mono-telemetry tracking-wider font-bold text-emerald-400 flex items-center space-x-1">
                             <Sparkles className="w-3 h-3 text-emerald-400" />
-                            <span>Iconic Attribute &amp; Heritage:</span>
+                            <span>Why Visit / Highlights:</span>
                           </div>
                           <p className="text-xs leading-relaxed font-light text-emerald-100/90">
                             {stop.famousFor}
@@ -359,7 +359,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
                       {stop.tips && (
                         <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.06] text-[11px] text-cyan-300/90 font-mono-telemetry flex items-start space-x-1.5">
                           <Info className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
-                          <span><strong>Curator Tip:</strong> {stop.tips}</span>
+                          <span><strong>Travel Tip:</strong> {stop.tips}</span>
                         </div>
                       )}
 
@@ -385,7 +385,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
                         <div className="flex items-center space-x-2">
                           <Footprints className="w-3.5 h-3.5 text-cyan-400" />
                           <span>
-                            Traversal to Stop {stopIdx + 2}: <strong>{nextStop.distanceFromPrev || `${nextStop.distanceKm || 1.8} km`}</strong>
+                            Next Stop ({stopIdx + 2}): <strong>{nextStop.distanceFromPrev || `${nextStop.distanceKm || 1.8} km`}</strong>
                           </span>
                         </div>
 
@@ -412,7 +412,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
             <div className="p-3 pb-2 flex items-center justify-between border-b border-aetheria-border mb-2">
               <span className="text-xs font-bold font-display uppercase tracking-wider text-cyan-400 flex items-center space-x-1.5">
                 <Compass className="w-4 h-4 text-cyan-400" />
-                <span>GIS Spatial Waypoint Route</span>
+                <span>Interactive Map &amp; Route</span>
               </span>
               <span className="text-[10px] text-slate-400 font-mono-telemetry">
                 Day {currentDay.dayNumber || activeDayIndex + 1} • {stops.length} Stops Mapped
@@ -429,10 +429,10 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
           <div className="glass-aetheria p-5 rounded-3xl border border-aetheria-border space-y-3 font-mono-telemetry text-xs">
             <div className="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
               <span className="text-[10px] uppercase tracking-widest text-cyan-400 font-bold">
-                Route Traversal Sequence
+                Day Route Overview
               </span>
               <span className="text-slate-400 text-[11px] font-bold">
-                {stops.length} Total Waypoints
+                {stops.length} Total Stops
               </span>
             </div>
 
@@ -461,7 +461,7 @@ export default function ItineraryTimeline({ itinerary, onReset }) {
               <div className="flex items-center space-x-2">
                 <Luggage className="w-4 h-4 text-emerald-400" />
                 <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white">
-                  Expedition Gear Checklist
+                  Packing Checklist
                 </h4>
               </div>
 

@@ -5,7 +5,7 @@ export default function FamousPlacesGrid({ places = [], onAddToPlanner }) {
   if (!places || places.length === 0) {
     return (
       <div className="p-8 text-center glass-aetheria rounded-3xl border border-aetheria-border text-slate-400 text-sm font-light">
-        No specific landmarks cataloged for this sanctuary yet.
+        No specific landmarks cataloged for this destination yet.
       </div>
     );
   }
@@ -15,14 +15,14 @@ export default function FamousPlacesGrid({ places = [], onAddToPlanner }) {
       <div className="flex items-center justify-between pb-3 border-b border-aetheria-border">
         <div>
           <span className="text-[10px] uppercase font-mono-telemetry tracking-widest text-cyan-400 font-bold block mb-1">
-            03 / Notable Sights
+            03 / Top Attractions
           </span>
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-            Architectural Masterpieces &amp; Landmarks
+            Famous Places &amp; Landmarks
           </h3>
         </div>
         <span className="text-xs text-slate-400 font-mono-telemetry">
-          {places.length} Curated Sights
+          {places.length} Attractions
         </span>
       </div>
 
@@ -94,7 +94,7 @@ export default function FamousPlacesGrid({ places = [], onAddToPlanner }) {
                     Tip: {place.bestTimeToVisit}
                   </span>
                 ) : (
-                  <span className="text-[10px] text-slate-400 font-mono-telemetry">Curated Sight</span>
+                  <span className="text-[10px] text-slate-400 font-mono-telemetry">Attraction</span>
                 )}
 
                 {onAddToPlanner && (

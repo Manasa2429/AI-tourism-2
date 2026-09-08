@@ -43,7 +43,7 @@ export default function DestinationCard({ destination, onSelect }) {
                 ? 'bg-gradient-to-tr from-cyan-400 to-emerald-400 text-slate-950 border-cyan-400 shadow-cyan-400/30 scale-105'
                 : 'bg-black/50 text-white hover:text-cyan-400 border-white/15 hover:bg-black/70'
             }`}
-            title={favorited ? 'Remove from saved' : 'Save sanctuary'}
+            title={favorited ? 'Remove from saved' : 'Save destination'}
           >
             <Bookmark className={`w-3.5 h-3.5 ${favorited ? 'fill-current' : ''}`} />
           </button>
@@ -104,13 +104,13 @@ export default function DestinationCard({ destination, onSelect }) {
             {destination.places?.length > 0 && (
               <div className="flex items-center space-x-1 text-slate-400">
                 <Landmark className="w-3.5 h-3.5 text-cyan-400/80" />
-                <span className="text-[11px] font-mono-telemetry">{destination.places.length} Sights</span>
+                <span className="text-[11px] font-mono-telemetry">{destination.places.length} Places</span>
               </div>
             )}
           </div>
 
           <span className="text-cyan-400 font-display font-bold text-xs flex items-center space-x-1 group-hover:translate-x-1 transition-transform">
-            <span>Explore Sanctuary</span>
+            <span>View Details</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </span>
         </div>

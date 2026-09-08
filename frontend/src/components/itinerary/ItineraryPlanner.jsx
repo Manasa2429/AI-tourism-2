@@ -161,15 +161,15 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
       <div className="text-center space-y-4 max-w-2xl mx-auto">
         <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 text-xs font-bold uppercase font-mono-telemetry tracking-widest shadow-lg shadow-cyan-500/5">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-          <span>AI Expedition Studio</span>
+          <span>AI Trip Planner</span>
         </div>
 
         <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Synthesize Your Custom Blueprint
+          Create Your Custom Travel Plan
         </h2>
 
         <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-light">
-          Set expedition parameters, duration, travel aesthetic, and pace. The Aetheria intelligence engine synthesizes verified day-by-day itineraries with mapped GIS coordinates, historical landmarks, and realistic transit intervals.
+          Choose your destination, trip duration, travel style, and pace. Our smart AI generates a complete day-by-day itinerary with real locations, popular attractions, and estimated travel times.
         </p>
       </div>
 
@@ -181,14 +181,14 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-display">
                 <Compass className="w-4 h-4 text-cyan-400" />
-                <span>Expedition Destination</span>
+                <span>Where do you want to go?</span>
               </label>
               <input
                 type="text"
                 required
                 value={destinationName}
                 onChange={(e) => setDestinationName(e.target.value)}
-                placeholder="e.g. Kyoto, Japan or Paris, France or Kedarnath, India"
+                placeholder="e.g. Munnar, Kerala or Kyoto, Japan or Paris, France"
                 className="w-full glass-aetheria-input rounded-2xl px-5 py-4 text-white font-medium text-sm placeholder-slate-500 focus:outline-none transition-all font-sans"
               />
             </div>
@@ -199,10 +199,10 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
                 <div className="flex items-center justify-between font-mono-telemetry">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-display">
                     <Calendar className="w-4 h-4 text-cyan-400" />
-                    <span>Expedition Length</span>
+                    <span>Trip Duration</span>
                   </label>
                   <span className="text-xs font-bold text-cyan-300 px-3.5 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30">
-                    {days} {days === 1 ? 'Day' : 'Days'} Blueprint
+                    {days} {days === 1 ? 'Day' : 'Days'} Itinerary
                   </span>
                 </div>
                 <input
@@ -229,7 +229,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-display">
                     <Calendar className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Departure Date</span>
+                    <span>Start Date</span>
                   </label>
                   <input
                     type="date"
@@ -240,12 +240,12 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
                 </div>
                 <div className="space-y-1.5 flex flex-col justify-end font-mono-telemetry">
                   <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400">
-                    Expedition Finale ({days} Days)
+                    Trip End ({days} Days)
                   </span>
                   <div className="px-4 py-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold flex items-center justify-between">
                     <span>{computeEndDateStr(startDate, days)}</span>
                     <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300">
-                      Departure
+                      End Date
                     </span>
                   </div>
                 </div>
@@ -256,7 +256,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
             <div className="space-y-3">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-display">
                 <Sliders className="w-4 h-4 text-cyan-400" />
-                <span>Travel Aesthetic &amp; Focus</span>
+                <span>Travel Style</span>
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {styleOptions.map((opt) => {
@@ -288,7 +288,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
                 <div className="flex items-center justify-between font-mono-telemetry">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-display">
                     <MapPin className="w-4 h-4 text-emerald-400" />
-                    <span>Include Nearby Sights &amp; Excursions</span>
+                    <span>Include Nearby Places &amp; Day Trips</span>
                   </label>
                   <span className="text-[11px] font-bold text-cyan-400 px-3 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/25">
                     {selectedNearbyPlaces.length} selected
@@ -316,7 +316,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30" />
                           <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[9px] font-bold font-mono-telemetry bg-black/80 backdrop-blur-sm text-cyan-300 border border-cyan-500/30">
-                            {place.distance || 'Excursion'}
+                            {place.distance || 'Nearby'}
                           </div>
                           <div className="absolute top-2 right-2">
                             <span className={`w-5 h-5 rounded-full flex items-center justify-center transition-all ${
@@ -328,7 +328,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
                         </div>
                         <div className="p-3 space-y-1">
                           <div className="text-[10px] uppercase font-bold text-emerald-400 font-mono-telemetry">
-                            {place.category || 'Day Excursion'}
+                            {place.category || 'Day Trip'}
                           </div>
                           <h5 className="font-display text-sm font-bold text-white line-clamp-1">
                             {place.name}
@@ -350,7 +350,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center space-x-2 font-display">
                   <DollarSign className="w-4 h-4 text-emerald-400" />
-                  <span>Budget Tier</span>
+                  <span>Budget</span>
                 </label>
                 <div className="grid grid-cols-3 gap-2 font-mono-telemetry">
                   {['Budget', 'Moderate', 'Luxury'].map((b) => (
@@ -373,7 +373,7 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
               {/* Pace */}
               <div className="space-y-2">
                 <label className="text-xs font-bold uppercase tracking-wider text-slate-300 font-display">
-                  Expedition Pace
+                  Trip Pace
                 </label>
                 <div className="grid grid-cols-3 gap-2 font-mono-telemetry">
                   {['Slow & Immersive', 'Balanced', 'High-Energy'].map((p) => (
@@ -443,12 +443,12 @@ export default function ItineraryPlanner({ initialDestination, initialItinerary 
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  <span>Synthesizing Day-by-Day Journey...</span>
+                  <span>Creating Your Day-by-Day Itinerary...</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-5 h-5" />
-                  <span>Generate AI Itinerary with Gemini</span>
+                  <span>Generate AI Itinerary</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </>
               )}

@@ -57,7 +57,7 @@ export default function WeatherWidget({ destination }) {
         <div className="flex items-center space-x-2">
           <span className="text-[10px] uppercase font-mono-telemetry font-bold px-3 py-1 rounded-full bg-emerald-500/[0.12] text-emerald-300 border border-emerald-500/25 flex items-center space-x-1.5 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Live Weather • {weather.sourceTimestamp ? `Updated ${weather.sourceTimestamp}` : 'Real-time Telemetry'}</span>
+            <span>Live Weather • {weather.sourceTimestamp ? `Updated ${weather.sourceTimestamp}` : 'Live Forecast'}</span>
           </span>
           <button
             onClick={fetchWeather}

@@ -29,9 +29,9 @@ export default function LocationBanner() {
               <AlertCircle className="w-5 h-5 text-aurora-coral" />
             </div>
             <div>
-              <p className="font-semibold text-coral-200 text-sm font-display">Orbital Radar Offline</p>
+              <p className="font-semibold text-coral-200 text-sm font-display">Location Access Disabled</p>
               <p className="text-xs text-slate-300 mt-0.5">
-                Select your origin hub manually to compute direct Haversine spherical flight vectors to each sanctuary.
+                Choose your starting city to see travel distances to each destination.
               </p>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function LocationBanner() {
               onClick={() => setShowManualInput(!showManualInput)}
               className="px-3.5 py-1.5 text-xs rounded-xl border border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 font-bold tracking-wide transition-all"
             >
-              Select Station
+              Choose City
             </button>
           </div>
         </div>
@@ -65,10 +65,10 @@ export default function LocationBanner() {
             </div>
             <div>
               <p className="font-semibold text-white text-xs sm:text-sm font-display">
-                Enable Geolocation for Spatial Flight Telemetry
+                Enable Location to See Travel Distances
               </p>
               <p className="text-xs text-slate-400 hidden sm:block mt-0.5 font-light">
-                Computes real-time great-circle orbital distances using Haversine spherical mathematics inside your browser.
+                Finds accurate distances from where you are to attractions and destinations worldwide.
               </p>
             </div>
           </div>
@@ -79,13 +79,13 @@ export default function LocationBanner() {
               disabled={loading}
               className="px-4 py-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-bold text-xs tracking-wider uppercase hover:shadow-lg hover:shadow-cyan-400/20 transition-all shrink-0 font-display"
             >
-              {loading ? 'Locating...' : 'Enable Radar'}
+              {loading ? 'Locating...' : 'Share Location'}
             </button>
             <button
               onClick={() => setShowManualInput(!showManualInput)}
               className="px-3.5 py-2 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-aetheria-border text-xs text-slate-300 font-medium transition-colors shrink-0"
             >
-              Pick Hub
+              Choose City
             </button>
             <button
               onClick={() => setDismissed(true)}
@@ -107,7 +107,7 @@ export default function LocationBanner() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
             </span>
             <span>
-              Radar Telemetry: <strong className="text-white font-semibold font-sans">{locationName}</strong> ({coords.lat.toFixed(2)}°, {coords.lng.toFixed(2)}°) • Orbital vectors locked
+              Your Location: <strong className="text-white font-semibold font-sans">{locationName}</strong> ({coords.lat.toFixed(2)}°, {coords.lng.toFixed(2)}°) • Distances calculated
             </span>
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function LocationBanner() {
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono-telemetry flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5" />
-              <span>Select Departure Station Hub</span>
+              <span>Choose Your Starting City</span>
             </span>
             <button
               onClick={() => setShowManualInput(false)}
@@ -139,7 +139,7 @@ export default function LocationBanner() {
                 className="p-3 text-left rounded-2xl bg-white/[0.03] hover:bg-cyan-500/15 hover:border-cyan-400/40 border border-aetheria-border transition-all group"
               >
                 <div className="font-semibold text-xs text-white truncate group-hover:text-cyan-300 transition-colors">{c.name}</div>
-                <div className="text-[10px] text-slate-400 mt-0.5 font-mono-telemetry">Station Select</div>
+                <div className="text-[10px] text-slate-400 mt-0.5 font-mono-telemetry">Select City</div>
               </button>
             ))}
           </div>

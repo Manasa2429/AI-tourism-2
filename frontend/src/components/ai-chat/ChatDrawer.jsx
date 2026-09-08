@@ -6,7 +6,7 @@ export default function ChatDrawer({ isOpen, onClose, destinationContext, onOpen
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: `Greetings from Aetheria. I am Aura, your autonomous planetary concierge powered by Google Gemini intelligence. How may I assist your expedition today? You can inquire about optimal seasonal windows, hidden architectural viewpoints, or local dining customs.`,
+      content: `Hi there! I am Aura, your AI travel assistant powered by Google Gemini. How can I help you plan your trip? You can ask about the best time to visit, top sights, food recommendations, or travel tips.`,
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -54,7 +54,7 @@ export default function ChatDrawer({ isOpen, onClose, destinationContext, onOpen
         ...prev,
         {
           role: 'assistant',
-          content: `When traversing ${context}, explore historical quarters at dawn for tranquility. For gastronomy, always seek out small, alleyway establishments frequented by locals.`
+          content: `When visiting ${context}, explore historical quarters early in the morning for tranquility. For great food, always seek out small local restaurants loved by residents.`
         }
       ]);
     } finally {
@@ -78,12 +78,12 @@ export default function ChatDrawer({ isOpen, onClose, destinationContext, onOpen
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h3 className="font-display text-lg font-bold text-white">Aura AI Concierge</h3>
+                <h3 className="font-display text-lg font-bold text-white">Aura AI Travel Assistant</h3>
                 <span className="text-[9px] px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 font-bold uppercase tracking-wider border border-cyan-500/30 font-mono-telemetry">
                   Gemini API
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">Expedition Target: <strong className="text-cyan-300 font-medium">{context}</strong></p>
+              <p className="text-xs text-slate-400 mt-0.5">Destination: <strong className="text-cyan-300 font-medium">{context}</strong></p>
             </div>
           </div>
 
@@ -135,7 +135,7 @@ export default function ChatDrawer({ isOpen, onClose, destinationContext, onOpen
                 {msg.followUps && msg.followUps.length > 0 && (
                   <div className="mt-3.5 pt-3 border-t border-white/10 space-y-2">
                     <span className="text-[10px] uppercase tracking-wider text-cyan-400 font-bold block font-mono-telemetry">
-                      Suggested Investigations:
+                      Suggested Questions:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {msg.followUps.map((fu, fIdx) => (
@@ -166,7 +166,7 @@ export default function ChatDrawer({ isOpen, onClose, destinationContext, onOpen
                 <Sparkles className="w-4 h-4" />
               </div>
               <div className="bg-white/[0.04] border border-aetheria-border rounded-2xl px-4 py-3 text-xs text-slate-300 flex items-center space-x-2">
-                <span>Aura is synthesizing insights with Gemini API...</span>
+                <span>Aura is thinking...</span>
                 <span className="flex space-x-1">
                   <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce" />
                   <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce [animation-delay:0.2s]" />
@@ -214,7 +214,7 @@ export default function ChatDrawer({ isOpen, onClose, destinationContext, onOpen
                 className="text-xs text-cyan-400 hover:text-cyan-300 transition-colors flex items-center space-x-1.5 font-display font-semibold"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Launch Day-by-Day Expedition Studio →</span>
+                <span>Open Day-by-Day Trip Planner →</span>
               </button>
             </div>
           )}

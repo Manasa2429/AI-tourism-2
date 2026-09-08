@@ -106,7 +106,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
                 {distance !== null && (
                   <div className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-xs text-cyan-300 border border-cyan-500/30 shadow-lg font-mono-telemetry">
                     <MapPin className="w-3 h-3 text-cyan-400" />
-                    <span>{distance.toLocaleString()} km from origin</span>
+                    <span>{distance.toLocaleString()} km away</span>
                   </div>
                 )}
               </div>
@@ -124,7 +124,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
               className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-emerald-400 text-slate-950 font-display font-bold text-xs uppercase tracking-wider hover:shadow-xl hover:shadow-cyan-400/30 hover:scale-[1.02] transition-all flex items-center space-x-2 shrink-0 self-start sm:self-auto cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Synthesize AI Blueprint</span>
+              <span>Plan Trip with AI</span>
             </button>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
             <div className="p-4 rounded-2xl bg-white/[0.03] border border-aetheria-border backdrop-blur-md">
               <div className="flex items-center space-x-2 text-slate-400 text-xs uppercase font-mono-telemetry tracking-wider mb-1 font-semibold">
                 <Calendar className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Prime Season</span>
+                <span>Best Time to Visit</span>
               </div>
               <div className="font-bold text-sm text-white font-display">
                 {destination.bestSeason || 'Spring & Autumn'}
@@ -146,7 +146,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
             <div className="p-4 rounded-2xl bg-white/[0.03] border border-aetheria-border backdrop-blur-md">
               <div className="flex items-center space-x-2 text-slate-400 text-xs uppercase font-mono-telemetry tracking-wider mb-1 font-semibold">
                 <DollarSign className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Daily Budget</span>
+                <span>Estimated Budget</span>
               </div>
               <div className="font-bold text-sm text-white font-display">
                 ${destination.avgDailyBudgetUSD || 150} USD / day
@@ -156,7 +156,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
             <div className="p-4 rounded-2xl bg-white/[0.03] border border-aetheria-border backdrop-blur-md">
               <div className="flex items-center space-x-2 text-slate-400 text-xs uppercase font-mono-telemetry tracking-wider mb-1 font-semibold">
                 <Globe className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Dialect & Currency</span>
+                <span>Language &amp; Currency</span>
               </div>
               <div className="font-bold text-sm text-white font-display">
                 {destination.language || 'Local'} • {destination.currency || 'USD'}
@@ -178,7 +178,7 @@ export default function DestinationDetailModal({ destination, onClose, onOpenPla
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 space-y-4">
               <h3 className="font-display text-2xl font-bold text-white">
-                Sanctuary Overview
+                About {destination.name}
               </h3>
               <p className="text-slate-300 leading-relaxed text-sm sm:text-base font-light">
                 {destination.description}

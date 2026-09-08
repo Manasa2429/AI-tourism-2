@@ -27,7 +27,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="text-xs sm:text-sm text-slate-300/80 leading-relaxed max-w-md font-light">
-            Autonomous planetary expedition intelligence. Synthesizing spatial geocoding, real-time microclimate streams, and Google Gemini reasoning into verified day-by-day itineraries.
+            Smart AI travel assistant. Combining real-time maps, live weather forecasts, and AI planning to create verified day-by-day itineraries.
           </p>
           <div className="flex flex-wrap gap-2 pt-2 font-mono-telemetry">
             <span className="text-[10px] uppercase tracking-wider px-3 py-1 rounded-xl bg-white/[0.04] border border-white/[0.08] text-slate-300 font-semibold">
@@ -51,9 +51,9 @@ export default function Footer() {
             Navigation
           </h4>
           <ul className="space-y-2.5 text-xs font-medium">
-            <li><a href="#destinations" className="text-slate-300 hover:text-white transition-colors">Sanctuaries Archive</a></li>
-            <li><a href="#places" className="text-slate-300 hover:text-white transition-colors">Notable Landmarks</a></li>
-            <li><a href="#itinerary" className="text-slate-300 hover:text-white transition-colors">AI Expedition Studio</a></li>
+            <li><a href="#destinations" className="text-slate-300 hover:text-white transition-colors">Destinations</a></li>
+            <li><a href="#places" className="text-slate-300 hover:text-white transition-colors">Top Attractions</a></li>
+            <li><a href="#itinerary" className="text-slate-300 hover:text-white transition-colors">AI Trip Planner</a></li>
             <li><a href="#" onClick={scrollToTop} className="text-slate-300 hover:text-white transition-colors">Return to Top</a></li>
           </ul>
         </div>
@@ -61,20 +61,20 @@ export default function Footer() {
         {/* Architecture & Verification */}
         <div>
           <h4 className="text-xs uppercase font-mono-telemetry tracking-widest text-emerald-400 font-bold mb-4">
-            System Pillars
+            Key Features
           </h4>
           <ul className="space-y-2 text-xs text-slate-400 font-light">
-            <li>• Strict Anti-Hallucination Guardrails</li>
-            <li>• Verified Real-World Coordinates</li>
-            <li>• Looping Aurora & Planetary Cinematics</li>
-            <li>• Haversine Distance Spherical Vectors</li>
-            <li>• Resilient Fallbacks for Standalone Mode</li>
+            <li>• Verified Real-World Locations</li>
+            <li>• Accurate GPS Coordinates</li>
+            <li>• Live Weather &amp; Real Photos</li>
+            <li>• Real-Time Travel Distances</li>
+            <li>• Smart AI Day-by-Day Itineraries</li>
           </ul>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto pt-8 border-t border-aetheria-border flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 relative z-10 font-mono-telemetry">
-        <p>© 2026 AETHERIA Planetary Intelligence. All Rights Reserved.</p>
+        <p>© 2026 AETHERIA AI Travel Planner. All Rights Reserved.</p>
         <button
           onClick={scrollToTop}
           className="flex items-center space-x-1.5 mt-3 sm:mt-0 text-slate-400 hover:text-cyan-400 transition-colors text-xs font-medium cursor-pointer"

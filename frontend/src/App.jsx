@@ -158,13 +158,13 @@ function TravelApp() {
       <button
         onClick={() => setIsChatOpen(true)}
         className="fixed bottom-6 right-6 z-40 p-4 rounded-full bg-gradient-to-r from-cyan-500 via-emerald-400 to-cyan-400 text-slate-950 shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/50 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center space-x-2.5 font-display font-bold text-xs uppercase tracking-wider group border border-cyan-300/50 cursor-pointer"
-        title="Open Aura AI Concierge"
+        title="Open Aura AI Assistant"
       >
         <span className="relative flex h-3 w-3">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75" />
           <Sparkles className="relative w-3.5 h-3.5 text-slate-950" />
         </span>
-        <span className="hidden sm:inline font-extrabold text-slate-950">Aura AI Concierge</span>
+        <span className="hidden sm:inline font-extrabold text-slate-950">Aura AI Assistant</span>
       </button>
 
       {/* Footer */}

@@ -12,19 +12,19 @@ export default function NearbyFamousPlaces({ nearbyPlaces = [], destinationName,
         <div>
           <div className="flex items-center space-x-2 text-[10px] uppercase font-mono-telemetry tracking-widest text-cyan-400 font-bold mb-1">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>04 / Regional Day Excursions</span>
+            <span>04 / Nearby Places to Visit</span>
           </div>
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-            Notable Escapes Near {destinationName}
+            Popular Places Near {destinationName}
           </h3>
         </div>
         <span className="text-xs text-slate-400 font-mono-telemetry">
-          {nearbyPlaces.length} Nearby Excursions
+          {nearbyPlaces.length} Places Nearby
         </span>
       </div>
 
       <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed font-light">
-        Iconic landmarks, palaces, and alpine sanctuaries situated within easy day-trip reach of {destinationName}. Add them directly to your personalized itinerary.
+        Popular attractions, scenic viewpoints, and day trips near {destinationName}. Add them directly to your custom itinerary.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -73,7 +73,7 @@ export default function NearbyFamousPlaces({ nearbyPlaces = [], destinationName,
               <div className="space-y-2">
                 <div className="flex items-center justify-between font-mono-telemetry">
                   <span className="text-[10px] uppercase tracking-wider font-bold text-emerald-400">
-                    {place.category || 'Day Excursion'}
+                    {place.category || 'Day Trip'}
                   </span>
                   {place.entryFee && (
                     <span className="text-xs font-semibold text-slate-300">

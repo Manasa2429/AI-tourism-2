@@ -56,7 +56,7 @@ export default function FilterBar({
               className="bg-aetheria-card border border-aetheria-border text-slate-200 text-xs rounded-xl px-3.5 py-2 focus:outline-none focus:border-cyan-400 cursor-pointer shadow-lg shadow-black/50 hover:border-cyan-500/40 transition-all font-sans"
             >
               <option value="rating">Highest Rated</option>
-              {hasLocation && <option value="distance">Nearest to Origin (GPS)</option>}
+              {hasLocation && <option value="distance">Nearest to You</option>}
               <option value="budget-low">Budget: Low to High</option>
               <option value="budget-high">Budget: Luxury First</option>
               <option value="name">Alphabetical</option>
@@ -69,7 +69,7 @@ export default function FilterBar({
       <div className="flex items-center space-x-2 overflow-x-auto pb-1 text-xs scrollbar-none">
         <span className="text-slate-400 font-bold text-[11px] uppercase tracking-widest shrink-0 flex items-center space-x-1.5 pl-1 font-mono-telemetry">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-          <span>Vibe:</span>
+          <span>Category:</span>
         </span>
         {vibeTags.map((tag) => {
           const isActive = selectedTag.toLowerCase() === tag.toLowerCase();

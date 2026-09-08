@@ -65,7 +65,7 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
                 AETHERIA
               </span>
               <span className="text-[9px] tracking-[0.3em] uppercase text-cyan-400/90 font-medium font-mono-telemetry flex items-center gap-1.5">
-                <span>Planetary Expeditions</span>
+                <span>AI Travel Planner</span>
                 <span className="inline-block w-1 h-1 rounded-full bg-emerald-400" />
                 <span className="text-emerald-400">Aura AI</span>
               </span>
@@ -78,27 +78,27 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
               href="#destinations"
               className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all"
             >
-              Sanctuaries
+              Destinations
             </a>
             <a
               href="#places"
               className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all"
             >
-              Landmarks
+              Attractions
             </a>
             <button
               onClick={() => onOpenItinerary()}
               className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all flex items-center space-x-1.5 group"
             >
               <Sparkles className="w-3.5 h-3.5 text-cyan-400 group-hover:rotate-12 transition-transform" />
-              <span>AI Studio</span>
+              <span>AI Planner</span>
             </button>
             <button
               onClick={onOpenChat}
               className="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all flex items-center space-x-1.5"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Concierge</span>
+              <span>AI Assistant</span>
             </button>
           </nav>
 
@@ -122,7 +122,7 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
                   )}
                 </div>
                 <span className="max-w-[120px] sm:max-w-[150px] truncate text-[11px] font-mono-telemetry tracking-wide">
-                  {locationLoading ? 'Locating...' : coords ? (locationName || 'Origin Set') : 'Set Departure'}
+                  {locationLoading ? 'Locating...' : coords ? (locationName || 'Location Set') : 'Set Location'}
                 </span>
               </button>
 
@@ -133,7 +133,7 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
                     <div className="flex items-center space-x-2">
                       <Navigation className="w-4 h-4 text-cyan-400" />
                       <span className="text-xs uppercase tracking-wider font-display font-bold text-white">
-                        Expedition Departure Hub
+                        Choose Starting Location
                       </span>
                     </div>
                     <button
@@ -152,11 +152,11 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
                     className="w-full flex items-center justify-center space-x-2 py-2.5 px-4 bg-gradient-to-r from-cyan-600/30 via-emerald-500/30 to-cyan-600/30 hover:from-cyan-600/40 hover:to-emerald-500/40 border border-cyan-500/40 text-cyan-200 rounded-2xl text-xs font-semibold tracking-wide transition-all shadow-lg shadow-cyan-500/10 mb-4 group"
                   >
                     <Navigation className="w-3.5 h-3.5 text-cyan-400 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
-                    <span>Auto-Detect GPS Telemetry</span>
+                    <span>Use My Current Location</span>
                   </button>
 
                   <div className="text-[10px] uppercase font-mono-telemetry tracking-widest text-slate-400 mb-2.5 font-semibold px-1">
-                    Or select global station:
+                    Or select a popular city:
                   </div>
 
                   <div className="space-y-1 max-h-52 overflow-y-auto pr-1">
@@ -179,7 +179,7 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
             <button
               onClick={() => setShowFavoritesModal(true)}
               className="relative p-2.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-aetheria-border text-slate-300 hover:text-cyan-400 transition-all duration-300"
-              title="Saved Expeditions"
+              title="Saved Trips"
             >
               <Bookmark className="w-4 h-4" />
               {totalSavedCount > 0 && (
@@ -211,8 +211,8 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
                   <Bookmark className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl text-white font-bold">Saved Blueprints</h3>
-                  <p className="text-xs text-slate-400">Your curated sanctuaries and personalized trip blueprints</p>
+                  <h3 className="font-display text-2xl text-white font-bold">Saved Trips</h3>
+                  <p className="text-xs text-slate-400">Your saved destinations and personalized travel plans</p>
                 </div>
               </div>
               <button
@@ -227,14 +227,14 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
               {/* Bookmarked Sanctuaries */}
               <div>
                 <h4 className="text-xs uppercase font-mono-telemetry tracking-widest text-cyan-400 font-bold mb-3">
-                  Bookmarked Sanctuaries ({favorites.length})
+                  Saved Destinations ({favorites.length})
                 </h4>
 
                 {favorites.length === 0 ? (
                   <div className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] text-center">
                     <Globe className="w-8 h-8 text-slate-600 mx-auto mb-2" />
                     <p className="text-xs text-slate-400">No destinations saved yet.</p>
-                    <p className="text-[11px] text-slate-500 mt-1">Tap the bookmark badge on any sanctuary card to save it.</p>
+                    <p className="text-[11px] text-slate-500 mt-1">Tap the bookmark icon on any destination card to save it.</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -269,14 +269,14 @@ export default function Navbar({ onOpenItinerary, onOpenChat, onSelectDestinatio
               {/* Saved AI Expeditions */}
               <div>
                 <h4 className="text-xs uppercase font-mono-telemetry tracking-widest text-emerald-400 font-bold mb-3">
-                  AI Expedition Blueprints ({savedItineraries.length})
+                  Saved AI Itineraries ({savedItineraries.length})
                 </h4>
 
                 {savedItineraries.length === 0 ? (
                   <div className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] text-center">
                     <Sparkles className="w-8 h-8 text-slate-600 mx-auto mb-2" />
-                    <p className="text-xs text-slate-400">No itineraries synthesized yet.</p>
-                    <p className="text-[11px] text-slate-500 mt-1">Generate a voyage in the AI Studio to save and access day-by-day GPS itineraries here.</p>
+                    <p className="text-xs text-slate-400">No itineraries created yet.</p>
+                    <p className="text-[11px] text-slate-500 mt-1">Create an itinerary with the AI Planner to save and view your day-by-day travel plans here.</p>
                   </div>
                 ) : (
                   <div className="space-y-2.5">

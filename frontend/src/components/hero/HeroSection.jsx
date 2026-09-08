@@ -164,15 +164,15 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
           </span>
           <span className="font-mono-telemetry font-bold tracking-wider text-cyan-300 uppercase text-[10px]">
-            Expedition Radar Active
+            Live Travel Planner
           </span>
           <span className="text-slate-600">•</span>
-          <span className="text-emerald-400 font-medium text-[11px]">Gemini 3.5 Reasoning</span>
+          <span className="text-emerald-400 font-medium text-[11px]">AI-Powered</span>
         </div>
 
         <div className="hidden sm:flex items-center space-x-2.5 text-xs text-slate-300 bg-aetheria-obsidian/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 font-mono-telemetry">
           <Radio className="w-3.5 h-3.5 text-cyan-400" />
-          <span className="text-[11px] tracking-wide">Planetary Vector Telemetry</span>
+          <span className="text-[11px] tracking-wide">Real-Time Travel Guide</span>
         </div>
       </div>
 
@@ -181,17 +181,17 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
         {/* Floating pill badge */}
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 backdrop-blur-xl border border-cyan-500/25 text-cyan-300 text-xs font-semibold tracking-widest uppercase mb-6 shadow-2xl animate-fade-in font-mono-telemetry">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-spin [animation-duration:9s]" />
-          <span>Autonomous Planetary Travel Architecture</span>
+          <span>Smart AI Travel Assistant</span>
         </div>
 
         {/* Modern Grand Headline */}
         <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.06] mb-6 max-w-4xl animate-slide-up drop-shadow-2xl">
-          Expeditions Beyond <br />
-          <span className="aurora-gradient-text">the Uncharted Horizon.</span>
+          Plan Your Next Adventure <br />
+          <span className="aurora-gradient-text">with Intelligent AI.</span>
         </h1>
 
         <p className="text-slate-200/90 text-base sm:text-lg md:text-xl font-light max-w-2xl leading-relaxed mb-10 text-balance drop-shadow-md">
-          Discover architectural sanctuaries worldwide, inspect live microclimatic weather streams, and synthesize verified multi-day GPS itineraries powered by Gemini intelligence.
+          Discover top travel destinations worldwide, check live local weather forecasts, and generate custom day-by-day itineraries in seconds.
         </p>
 
         {/* Floating Search Dock (Expedition Radar) */}
@@ -224,7 +224,7 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
               type="submit"
               className="w-full sm:w-auto px-8 py-3.5 rounded-xl sm:rounded-full bg-gradient-to-r from-cyan-500 via-emerald-400 to-cyan-400 text-slate-950 font-display font-bold text-xs tracking-widest uppercase hover:shadow-xl hover:shadow-cyan-400/30 hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0 cursor-pointer flex items-center justify-center space-x-2"
             >
-              <span>Explore Archive</span>
+              <span>Search Places</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>
@@ -261,7 +261,7 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
             className="px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-600/30 via-emerald-500/30 to-cyan-600/30 hover:from-cyan-600/40 hover:to-emerald-500/40 backdrop-blur-md border border-cyan-400/40 text-cyan-200 font-display font-bold text-xs tracking-wider uppercase transition-all flex items-center space-x-2 shadow-lg shadow-cyan-500/15 hover:border-cyan-300 hover:scale-[1.02] active:scale-[0.98]"
           >
             <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span>Launch AI Itinerary Studio</span>
+            <span>Plan Trip with AI</span>
           </button>
 
           {!coords && (
@@ -270,7 +270,7 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
               className="px-5 py-3.5 rounded-full bg-aetheria-surface/80 hover:bg-aetheria-surface text-slate-300 hover:text-white text-xs tracking-wider uppercase transition-all flex items-center space-x-2 border border-white/10 font-mono-telemetry"
             >
               <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Enable GPS Telemetry</span>
+              <span>Use My Location</span>
             </button>
           )}
         </div>
@@ -282,7 +282,7 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
           {/* Left: Included Modules */}
           <div className="flex items-center space-x-3 text-xs">
             <span className="text-[10px] uppercase font-mono-telemetry tracking-widest text-slate-400 font-bold hidden lg:inline">
-              Expedition Engine:
+              Quick Explore:
             </span>
             <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
               <button
@@ -290,21 +290,21 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
                 className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-white/[0.03] hover:bg-cyan-500/10 border border-aetheria-border text-slate-200 transition-all hover:border-cyan-400/40 group cursor-pointer"
               >
                 <Globe className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
-                <span className="font-medium text-xs">Global Sanctuaries</span>
+                <span className="font-medium text-xs">Top Destinations</span>
               </button>
               <button
                 onClick={() => scrollToSection('destinations')}
                 className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-white/[0.03] hover:bg-emerald-500/10 border border-aetheria-border text-slate-200 transition-all hover:border-emerald-400/40 group cursor-pointer"
               >
                 <CloudSun className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-                <span className="font-medium text-xs">Live Telemetry</span>
+                <span className="font-medium text-xs">Live Weather</span>
               </button>
               <button
                 onClick={() => scrollToSection('itinerary')}
                 className="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-white/[0.03] hover:bg-cyan-500/10 border border-aetheria-border text-slate-200 transition-all hover:border-cyan-300/40 group cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-cyan-300 group-hover:scale-110 transition-transform" />
-                <span className="font-medium text-xs">AI GIS Studio</span>
+                <span className="font-medium text-xs">AI Planner</span>
               </button>
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function HeroSection({ onSearchSubmit, onQuickExplore, onOpenAiPl
                 Scroll to Explore
               </span>
               <span className="text-[10px] font-mono-telemetry text-slate-400">
-                02 / Sanctuaries &amp; Coordinates
+                02 / Places &amp; Attractions
               </span>
             </div>
 

@@ -2145,10 +2145,10 @@ STRICT REQUIREMENTS (DO NOT VIOLATE):
 
 Return ONLY valid JSON matching this exact structure:
 {
-  "tripTitle": "${daysCount}-Day Expedition in ${dest}",
-  "summary": "Compelling 2-3 sentence overview of this voyage from ${startDateStr} to ${endDateStr}.",
+  "tripTitle": "${daysCount}-Day Trip in ${dest}",
+  "summary": "Compelling 2-3 sentence overview of this trip from ${startDateStr} to ${endDateStr}.",
   "durationDays": ${daysCount},
-  "travelStyle": "${request.travelStyle || 'Curated'}",
+  "travelStyle": "${request.travelStyle || 'Balanced'}",
   "budgetLevel": "${request.budgetLevel || 'Moderate'}",
   "estimatedBudget": "$XXX - $XXX",
   "packingAdvice": ["Advice 1", "Advice 2", "Advice 3", "Advice 4", "Advice 5"],
@@ -2216,7 +2216,7 @@ Return ONLY valid JSON matching this exact structure:
                   destinationName: dest,
                   startDate: startDateStr,
                   endDate: endDateStr,
-                  tripTitle: parsed.tripTitle || `${daysCount}-Day Curated Expedition in ${dest}`,
+                  tripTitle: parsed.tripTitle || `${daysCount}-Day Trip in ${dest}`,
                   summary: parsed.summary || `An authentic, real-time journey from ${startDateStr} to ${endDateStr} in ${dest}.`,
                   durationDays: daysCount,
                   totalTripStops,

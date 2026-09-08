@@ -182,7 +182,7 @@ export default function ItineraryMap({ stops = [], destinationName = '' }) {
       <div className="absolute top-3 left-3 z-[1000] flex items-center space-x-2">
         <div className="px-3 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-cyan-500/30 text-[11px] font-mono-telemetry font-bold text-cyan-300 flex items-center space-x-1.5 shadow-lg">
           <Navigation className="w-3 h-3 text-cyan-400" />
-          <span>{validStops.length} Waypoints Mapped</span>
+          <span>{validStops.length} Stops Mapped</span>
         </div>
       </div>
 

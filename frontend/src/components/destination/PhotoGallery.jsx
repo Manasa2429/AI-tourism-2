@@ -3,7 +3,7 @@ import { Camera, Maximize2, X, ChevronLeft, ChevronRight, Sparkles, MapPin } fro
 import { imageService } from '../../services/api';
 
 export default function PhotoGallery({ destination, destinationName, initialImages = [] }) {
-  const name = destinationName || destination?.name || 'Sanctuary';
+  const name = destinationName || destination?.name || 'Destination';
   const [filter, setFilter] = useState('all');
   const [apiImages, setApiImages] = useState(initialImages);
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ export default function PhotoGallery({ destination, destinationName, initialImag
       title: `${name} Panorama`,
       category: 'Destination Vista',
       tag: 'cover',
-      badge: 'Main Sanctuary',
+      badge: 'Featured View',
       photographer: 'Editorial Curated'
     });
   }
@@ -124,10 +124,10 @@ export default function PhotoGallery({ destination, destinationName, initialImag
         <div>
           <div className="flex items-center space-x-2 text-[10px] uppercase font-mono-telemetry tracking-widest text-cyan-400 font-bold mb-1">
             <Camera className="w-3.5 h-3.5 text-cyan-400" />
-            <span>05 / Visual Perspective Collection</span>
+            <span>05 / Photo Gallery</span>
           </div>
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-white">
-            High-Resolution Photography
+            Photos &amp; Scenic Views
           </h3>
         </div>
 
@@ -161,7 +161,7 @@ export default function PhotoGallery({ destination, destinationName, initialImag
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            Excursions
+            Nearby Trips
           </button>
           <button
             onClick={() => setFilter('scenery')}
@@ -171,13 +171,13 @@ export default function PhotoGallery({ destination, destinationName, initialImag
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            Atmospheric
+            Scenery
           </button>
         </div>
       </div>
 
       <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed font-light">
-        Curated photographic archives portraying {name}, its monumental shrines, and neighboring natural wonders. Click any image for full-screen inspection.
+        Explore high-resolution photos of {name}, its top attractions, and nearby scenic landscapes. Click any image to view full screen.
       </p>
 
       {/* Grid */}
